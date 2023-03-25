@@ -41,6 +41,7 @@ app.use(express.static(__dirname + '/public'));
 app.get('/public', express.static('public'));
 app.get('/', checkAuthenticated, (req, res) => {
   res.sendFile(path.join(__dirname, '/public', 'index.html'));
+  res.render({ name: req.user.name })
 })
 
 app.get('/login', checkNotAuthenticated, (req, res) => {
