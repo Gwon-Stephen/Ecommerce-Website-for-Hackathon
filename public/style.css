@@ -326,7 +326,7 @@ background-color: #e9edc9;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    background-image: url("img/banner/b17.jpg"); /* replace */
+    background-image: url("img/Website Images/Keycaps/CGzaecwsQ8GvUl42YeyF_pc.png"); /* replace */
     min-width: 580px;
     width: 830px;
     height: 50vh;
@@ -336,7 +336,7 @@ background-color: #e9edc9;
 }
 
 #sm-banner .banner-box2{     
-    background-image: url("img/banner/b10.jpg");    /* replace */
+    background-image: url("img/banner/b10.png");    /* replace */
 
 }
 
@@ -345,7 +345,16 @@ background-color: #e9edc9;
     font-size: 20px;
     font-weight: 300;
 }
-
+#sm-banner .banner-box h5{
+    color: #050000;
+    font-size: 20px;
+    font-weight: 300;
+}
+#sm-banner .banner-box h3{
+    color: #050000;
+    font-size: 28px;
+    font-weight: 800;
+}
 #sm-banner .banner-box h2{
     color: #fff;
     font-size: 28px;
