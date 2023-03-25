@@ -85,6 +85,11 @@ body
     top: 0;
     left: 0;
 }
+#header .logo{
+    width: 50%;
+    height:50%;
+}
+
 #navbar
 {
     display: flex;
@@ -126,7 +131,7 @@ left: 20px;
 /* Home Start */
 #hero
 {
-    background-image: url("img/homepage.png"); /* replace */
+    background-image: url("img/homepage.png"); 
     height: 90vh;
     width: 100%;
     background-size: cover;
