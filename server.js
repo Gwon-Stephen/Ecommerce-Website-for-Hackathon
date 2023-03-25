@@ -1,7 +1,7 @@
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
-
+const bodyParser = require('body-parser');
 const express = require('express')
 const app = express()
 const bcrypt = require('bcrypt')
@@ -33,25 +33,28 @@ app.use(passport.session())
 app.use(methodOverride('_method'))
 app.use(express.static(__dirname + '/public'));
 
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
 
 /*app.get('/', checkAuthenticated, (req, res) => {
-  res.render('index.ejs', { name: req.user.name })
+  res.render('index.ejs', { name: req.user.name }) 
 })*/
 
 app.get('/public', express.static('public'));
-app.get('/', checkAuthenticated, (req, res) => {
-  res.sendFile(path.join(__dirname, '/public', 'index.html'));
-  res.render({ name: req.user.name })
+
+app.get('/', checkAuthenticated, (req, res) =>  {
+  res.render(__dirname + "/public/index1.html", { name : req.body.name})
+  res.sendFile(path.join(__dirname, '/public', 'index1.html'));
+  
 })
 
 app.get('/login', checkNotAuthenticated, (req, res) => {
   res.render('login.ejs')
 })
 
-
 app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
-  successRedirect: '/',
-  failureRedirect: '/login',
+  successRedirect: href ='index1.html',
+  failureRedirect: '/login', 
   failureFlash: true
 }))
 
@@ -75,8 +78,8 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
 })
 
 app.delete('/logout', (req, res, next) => {
-  req.logOut((err) => {
-    if (err) {
+  req.logOut((err) => { 
+    if (err) { 
       return next(err);
     }
     res.redirect('/login');
